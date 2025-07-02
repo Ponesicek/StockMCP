@@ -134,15 +134,15 @@ server.registerTool("place-order",
     {
         title: "Make Order",
         description: "Make an order",
-        inputSchema: { symbol: z.string(), quantity: z.number(), side: z.enum(['buy', 'sell']) }
+        inputSchema: { symbol: z.string(), quantity: z.number(), side: z.enum(['buy', 'sell']), time_in_force: z.enum(['day', 'gtc', 'opg', 'ioc']) }
     },
-    async ({ symbol, quantity, side }) => {
+    async ({ symbol, quantity, side, time_in_force }) => {
         const order = await alpaca.createOrder({
             symbol: symbol,
             qty: quantity,
             side: side,
             type: 'market',
-            time_in_force: 'day',
+            time_in_force: time_in_force,
           });
         return { content: [{ type: "text", text: JSON.stringify(order) }] };
     }
@@ -280,16 +280,16 @@ server.registerTool("place-stop-limit-order",
     {
         title: "Place Stop Limit Order",
         description: "Place a stop limit order",
-        inputSchema: { symbol: z.string(), quantity: z.number(), side: z.enum(['buy', 'sell']), price: z.number(), time_in_force: z.enum(['day', 'gtc', 'opg', 'ioc']) }
+        inputSchema: { symbol: z.string(), quantity: z.number(), side: z.enum(['buy', 'sell']), stop_price: z.number(), limit_price: z.number(), time_in_force: z.enum(['day', 'gtc', 'opg', 'ioc']) }
     },
-    async ({ symbol, quantity, side, price, time_in_force }) => {
+    async ({ symbol, quantity, side, stop_price, limit_price, time_in_force }) => {
         const order = await alpaca.createOrder({
             symbol: symbol,
             qty: quantity,
             side: side,
             type: 'stop_limit',
-            stop_price: price,
-            limit_price: price,
+            stop_price: stop_price,
+            limit_price: limit_price,
             time_in_force: time_in_force,
         });
         return { content: [{ type: "text", text: JSON.stringify(order) }] };

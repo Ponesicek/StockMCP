@@ -1,9 +1,12 @@
 {
   "type": "module",
   "scripts": {
-    "start": "tsx index.ts",
-    "build": "tsc index.ts",
-    "dev": "tsx index.ts"
+    "start": "node dist/index.js",
+    "build": "tsc",
+    "dev": "tsx index.ts",
+    "docker:build": "docker build -t stock-mcp .",
+    "docker:run": "docker run --env-file .env stock-mcp",
+    "docker:dev": "docker-compose up --build"
   },
   "devDependencies": {
     "@types/node": "^24.0.10",

@@ -40,7 +40,7 @@ server.registerTool("get-stock-price",
             };
         } catch (error) {
             return {
-                content: [{ type: "text", text: `Error fetching price for ${symbol}: ${error.message}` }]
+                content: [{ type: "text", text: `Error fetching price for ${symbol}: ${(error as Error).message}` }]
             };
         }
     }
@@ -65,7 +65,7 @@ server.registerTool("get-cash",
         inputSchema: { }
     },
     async () => {
-        const cash = await alpaca.getAccount().then(account => account.cash + " " + account.currency);
+        const cash = await alpaca.getAccount().then((account: any) => account.cash + " " + account.currency);
         return { content: [{ type: "text", text: JSON.stringify(cash) }] };
     }
 )
@@ -118,7 +118,7 @@ server.registerTool("get-positions",
             return { content: [{ type: "text", text: "No current positions" }] };
         }
         
-        const formatted = positions.map(pos => ({
+        const formatted = positions.map((pos: any) => ({
             symbol: pos.symbol,
             quantity: pos.qty,
             side: pos.side, // 'long' or 'short'
@@ -198,7 +198,7 @@ server.registerTool("get-portfolio-value",
         inputSchema: { }
     },
     async () => {
-        const portfolio = await alpaca.getAccount().then(account => account.portfolio_value);
+        const portfolio = await alpaca.getAccount().then((account: any) => account.portfolio_value);
         return { content: [{ type: "text", text: JSON.stringify(portfolio) }] };
     }
 )
@@ -252,7 +252,7 @@ server.registerTool("get-historical-data",
             
             return { content: [{ type: "text", text: JSON.stringify(bars, null, 2) }] };
         } catch (error) {
-            return { content: [{ type: "text", text: `Error fetching historical data: ${error.message}` }] };
+            return { content: [{ type: "text", text: `Error fetching historical data: ${(error as Error).message}` }] };
         }
     }
 )

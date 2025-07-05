@@ -7,8 +7,8 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci --only=production
+# Install ALL dependencies (including dev for TypeScript)
+RUN npm ci
 
 # Copy TypeScript source code
 COPY . .
@@ -16,16 +16,11 @@ COPY . .
 # Build TypeScript
 RUN npm run build
 
-# Create non-root user for security
-RUN addgroup -g 1001 -S nodejs
-RUN adduser -S nodejs -u 1001
-
-# Change ownership of app directory
-RUN chown -R nodejs:nodejs /app
-USER nodejs
+# Remove dev dependencies to reduce image size
+RUN npm ci --only=production && npm cache clean --force
 
 # Expose port (if needed for health checks)
 EXPOSE 3000
 
-# Start the MCP server
-CMD ["npm", "start"] 
+# Start the MCP server with explicit stdin/stdout handling
+CMD ["node", "dist/index.js"] 

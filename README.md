@@ -2,19 +2,6 @@
 
 > **⚠️ IMPORTANT DISCLAIMER: This is an experimental project for educational and research purposes only. Investing in stocks and other financial instruments carries significant risk of loss. You could lose all or more than your initial investment. The creator of this project is not responsible for any financial losses, damages, or consequences that may result from using this software. Always consult with a qualified financial advisor before making investment decisions. Use this software at your own risk.**
 
-## Table of Contents
-
-- [What is StockMCP?](#-what-is-stockmcp)
-- [Risk Warning](#-risk-warning)
-- [Project Structure](#-project-structure)
-- [Prerequisites](#-prerequisites)
-- [Usage](#-usage)
-- [Contributing](#-contributing)
-- [License](#-license)
-- [Related Projects](#-related-projects)
-- [Educational Resources](#-educational-resources)
-- [Final Disclaimer](#-final-disclaimer)
-
 ## 🤖 What is StockMCP?
 
 StockMCP is an open-source experiment that explores what happens when artificial intelligence is given the ability to trade stocks autonomously. This project implements a Model Context Protocol (MCP) server that integrates with the Alpaca trading API, allowing AI models to interact with real financial markets.

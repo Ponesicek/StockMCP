@@ -13,9 +13,6 @@ services:
     stdin_open: true    # Keep stdin open for MCP communication
     tty: true          # Allocate a pseudo-TTY
     restart: unless-stopped
-    volumes:
-      # Optional: Mount logs directory
-      - ./logs:/app/logs
     networks:
       - stock-network
 

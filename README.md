@@ -4,16 +4,16 @@
 
 ## Table of Contents
 
-- [What is StockMCP?](#what-is-stockmcp)
-- [Risk Warning](#risk-warning)
-- [Project Structure](#project-structure)
-- [Prerequisites](#prerequisites)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Related Projects](#related-projects)
-- [Educational Resources](#educational-resources)
-- [Final Disclaimer](#final-disclaimer)
+- [What is StockMCP?](#-what-is-stockmcp)
+- [Risk Warning](#-risk-warning)
+- [Project Structure](#-project-structure)
+- [Prerequisites](#-prerequisites)
+- [Usage](#-usage)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Related Projects](#-related-projects)
+- [Educational Resources](#-educational-resources)
+- [Final Disclaimer](#-final-disclaimer)
 
 ## 🤖 What is StockMCP?
 
